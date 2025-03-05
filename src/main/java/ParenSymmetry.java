@@ -1,11 +1,30 @@
 import java.util.Arrays;
 import java.util.List;
-
+import java.io.FileReader;
 public class ParenSymmetry {
 
     public Boolean isBalanced(String s) {
-        return null;
+        int age = 0;
+        int idx = 0;
+
+        while (idx < s.length()) {
+            String c = String.valueOf(s.charAt(idx));
+
+            if (c.equals("(") ) {
+                age++ ;
+            } else if (c.equals(")")) {
+                age--;
+            }
+            idx++;
+        }
+        //examine status
+            return age == 0;
+
     }
+
+
+
+
 
     private void checkFile(String filename) {
         // open file named filename
