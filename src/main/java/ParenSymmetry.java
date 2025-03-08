@@ -65,7 +65,8 @@ public class ParenSymmetry {
             Scanner myReader = new Scanner(myObj);
             while (myReader.hasNextLine()) {
                 String file = myReader.nextLine();
-                System.out.println(file);
+                //want to print the result of passing that specific line of txt through your isBalanced method
+                System.out.println(isBalanced(file));
             }
             myReader.close();
         } catch (FileNotFoundException e) {
