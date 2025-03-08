@@ -1,40 +1,8 @@
-import java.util.Arrays;
-import java.util.List;
-import java.io.FileReader;
+import java.io.File;  // Import the File class
+import java.io.FileNotFoundException;  // Import this class to handle errors
+import java.util.Scanner; // Import the Scanner class to read text files
+
 public class ParenSymmetry {
-
-    public Boolean isBalanced(String s) {
-        int age = 0;
-        int idx = 0;
-
-        while (idx < s.length()) {
-            String c = String.valueOf(s.charAt(idx));
-
-            if (c.equals("(") ) {
-                age++ ;
-            } else if (c.equals(")")) {
-                age--;
-            }
-            idx++;
-        }
-        //examine status
-            return age == 0;
-
-    }
-
-
-
-
-
-    private void checkFile(String filename) {
-        // open file named filename
-
-        // for each line in the file
-            // read the line
-            // print whether or not the line's parenthesis are balanced
-
-        // CLOSE the file
-    }
 
     public static void main(String[] args) {
         ParenSymmetry ps = new ParenSymmetry();
@@ -69,4 +37,50 @@ public class ParenSymmetry {
             System.out.println("Failure");
         }
     }
-}
+
+    public Boolean isBalanced(String s) {
+        int age = 0;
+        int idx = 0;
+
+        while (idx < s.length()) {
+            String c = String.valueOf(s.charAt(idx));
+
+            if (c.equals("(") ) {
+                age++ ;
+            } else if (c.equals(")")) {
+                age--;
+            }
+            idx++;
+        }
+        //examine status
+            return age == 0;
+
+    }
+
+
+    private void checkFile(String filename) {
+
+        try {
+            File myObj = new File("TestStrings1.txt");
+            Scanner myReader = new Scanner(myObj);
+            while (myReader.hasNextLine()) {
+                String file = myReader.nextLine();
+                System.out.println(file);
+            }
+            myReader.close();
+        } catch (FileNotFoundException e) {
+            System.out.println("An error occurred.");
+            e.printStackTrace();
+        }
+    }
+
+        // open file named filename
+
+        // for each line in the file
+            // read the line
+            // print whether or not the line's parenthesis are balanced
+
+        // CLOSE the file
+    }
+
+
